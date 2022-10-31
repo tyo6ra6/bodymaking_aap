@@ -1,24 +1,50 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                   |
+|--------------------|---------------------|---------------------------|
+| nickname           | string              | null: false               |
+| email              | string              | null: false, unique: true |
+| encrypted_password | string              | null: false               |
+| sex_id             | integer             | null: false               |
+| generation_id      | integer             | null: false               |
+| height             | integer             | null: false               |
+| body_weight        | integer             | null: false               |
 
-* Ruby version
+　
+### Association
 
-* System dependencies
+* has_many :records
+* has_many :comments
 
-* Configuration
+## records table
 
-* Database creation
+| Column            | Type       | Options                        |
+|------------------ |------------|--------------------------------|
+| training_site_id  | integer    | null: false                    |
+| training_event_id | integer    | null: false                    |
+| weight            | integer    | null: false                    |
+| times_id          | integer    | null: false                    |
+| thoughts          | text       |                                |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## comments table
 
-* ...
+| Column      | Type       | Options                        |
+|-------------|------------|--------------------------------|
+| user        | references | null: false, foreign_key: true |
+| record      | references | null: false, foreign_key: true |
+| text        | text       | null: false                    |
+
+### Association
+
+- belongs_to :user
+- belongs_to :record
+
+
+
