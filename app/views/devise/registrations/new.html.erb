@@ -10,11 +10,6 @@
    </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
     <%= f.label :email, "メールアドレス" %><br />
     <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
   </div>
@@ -41,18 +36,14 @@
 
   <div class="field">
     <%= f.label :height, "身長" %><br />
-    <%= f.email_field :height, id:"user_hight", autofocus: true, autocomplete: "height" %>
+    <%= f.text_field :height, id:"user_hight", autofocus: true, autocomplete: "height" %>
   </div>
 
   <div class="field">
     <%= f.label :body_weight, "体重" %><br />
-    <%= f.email_field :body_weight, id:"user_body_weight", autofocus: true, autocomplete: "body_weight" %>
+    <%= f.text_field :body_weight, id:"user_body_weight", autofocus: true, autocomplete: "body_weight" %>
   </div>
 
-
-
-
-  
 
   <div class="actions">
      <%= f.submit "新規登録" %>
