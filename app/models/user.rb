@@ -10,6 +10,7 @@ class User < ApplicationRecord
          extend ActiveHash::Associations::ActiveRecordExtensions
          belongs_to :sex
          belongs_to :generation
+         
          validates :nickname, presence: true
          validates :height, presence: true
          validates :sex_id, numericality: { other_than: 1 } 
