@@ -1,0 +1,56 @@
+<div class='chat-room-form'>
+  <h1>本日のトレーニングを記録</h1>
+  <%=form_with model: @record, url: records_path, local: true do |f|%>
+
+    <div class="field">
+   <%= f.label :days, "日付" %><br />
+    <%= f.text_field :days, id:"record_days",placeholder:"○/○日", autofocus: true, autocomplete: "height" %>
+    </div>
+    
+   
+    <div class="field">
+    <%= f.label :training_site_id, "トレーニング部位" %><br />
+    <%= f.collection_select(:training_site_id, TrainingSite.all, :id, :name, {}) %>
+    </div>
+
+     <div class="field">
+    <%= f.label :training_event_id , "トレーニング種目" %><br />
+    <%= f.collection_select(:training_event_id ,TrainingEvent.all, :id, :name, {}) %>
+    </div>
+
+     <div class="field">
+    <%= f.label :times_id , "回数・有酸素時間" %><br />
+    <%= f.collection_select(:times_id ,Times.all, :id, :name, {}) %>
+    </div>
+
+    <div class="field">
+    <%= f.label :weight, "重量 or 消費カロリー" %><br />
+    <%= f.text_field :weight, id:"record_weight",placeholder:"キログラム or カロリー", autofocus: true, autocomplete: "height" %>
+     </div>
+
+    <div class="field">
+    <%= f.label :set_count_id, "セット数" %><br />
+    <%= f.collection_select(:set_count_id,SetCount.all, :id, :name, {}) %>
+    </div>
+
+  <div class="field">
+     <%= f.label :thoughts , "感想・備考欄" %><br />
+     <%= f.text_area :thoughts, class:"text", id:"record_thoughts", placeholder:"トレーニングの感想・メモ" ,rows:"7" ,maxlength:"1000" %>
+  </div>
+
+   <div class="field">
+     <%= f.label :thoughts , "画像を添付" %><br />
+     <%= f.file_field :image, id:"record-image" %>
+   </div>
+
+       
+    
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'></div>
+      <div class='chat-room-form__field--right'>
+        <%= f.submit class: 'chat-room-form__action-btn'%>
+      </div>
+    </div>
+
+ <% end %>
+</div>

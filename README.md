@@ -22,7 +22,7 @@
 
 | Column            | Type       | Options                        |
 |------------------ |------------|--------------------------------|
-| date              | date       | null: false                    |
+| day              | date       | null: false                    |
 | training_site_id  | integer    | null: false                    |
 | training_event_id | integer    | null: false                    |
 | weight            | integer    | null: false                    |
