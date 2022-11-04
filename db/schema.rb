@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_115743) do
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "days", null: false
+    t.date "days", null: false
     t.integer "training_site_id", null: false
     t.integer "training_event_id", null: false
     t.integer "weight", null: false
