@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_record, only: [:edit, :show, :destroy]
 
   def index
     @records = Record.order("created_at DESC")
@@ -21,11 +22,18 @@ class RecordsController < ApplicationController
     end
   end
 
+ def show
+ end 
+
 
   private
 
   def record_params
     params.require(:record).permit(:days, :training_site_id, :training_event_id, :times_id, :set_count_id, :weight, :thoughts, :image).merge(user_id: current_user.id)
+  end
+
+  def set_record
+    @record = Record.find(params[:id])
   end
 
 end
