@@ -1,5 +1,7 @@
 
+ 
   <div class="album py-5 bg-light ">
+  
     <div class="container">
 
       <div class="row row-cols- row-cols-sm-2 g-2 justify-content-center ">
@@ -21,8 +23,17 @@
                     <div>
                       <p>トレーニング種目: <%= @record.training_event.name %></p>
                     </div>
+                     <div >
+                       <p>重量 or 消費カロリー: <%= @record.weight %></p>
+                    </div>
+                     <div >
+                       <p>回数・有酸素時間: <%= @record.times.name %></p>
+                    </div>
+                     <div >
+                       <p>セット数: <%= @record.set_count.name %></p>
+                    </div>
                     <div >
-                       <p>メモ: <%= @record.thoughts %></p>
+                       <p>感想・メモ: <%= @record.thoughts %></p>
                     </div>
                   </div>
                   </p>      
@@ -30,3 +41,5 @@
                     </div>
                   </div>
                   </div>
+                 
+            
