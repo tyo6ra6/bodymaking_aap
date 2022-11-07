@@ -1,11 +1,11 @@
-
+   
 <div class="album py-5 bg-light ">
 
 <div class="card shadow-sm">
 <div class='chat-room-form'>
 
   <h1>本日のトレーニングを記録</h1>
-  <%=form_with model: @record, url: records_path, local: true do |f|%>
+  <%=form_with model: @record, local: true do |f|%>
 
 
 
@@ -56,7 +56,9 @@
     <div class='chat-room-form__field'>
       <div class='chat-room-form__field--left'></div>
       <div class='chat-room-form__field--right'>
-        <%= f.submit class: 'chat-room-form__action-btn'%>
+      
+       <%= f.submit "変更する" ,class:"" %>
+       <%=link_to 'もどる', record_path, class:"" %>
       </div>
     </div>
   
