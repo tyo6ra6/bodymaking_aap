@@ -13,7 +13,6 @@
 
                 <div class="card-body">
                   <p>
-                  <div>
                     <div class = "record-days" >
                        <p>day: <%= @record.days %>日</p>
                     </div>
@@ -35,11 +34,20 @@
                     <div >
                        <p>感想・メモ: <%= @record.thoughts %></p>
                     </div>
-                  </div>
-                  </p>      
-                      </div>
-                    </div>
-                  </div>
-                  </div>
+                  </p>   
+                   <p>
+                    <%= link_to( edit_record_path) do %>
+                      <span class="btn btn-primary my-2" >記録を編集</span>
+                    <% end %>
+
+                     <%= link_to( new_record_path) do %>
+                      <span class="btn btn-primary my-2">記録を削除</span>
+                    <% end %>
+                    </p>
+                </div>                  
+        </div>
+      </div>
+    </div>
+   </div>
                  
             

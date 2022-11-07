@@ -12,6 +12,7 @@ class Record < ApplicationRecord
 
   validates :days, presence: true
   validates :weight, presence: true
+  validates :image, presence: true
 
   validates :training_site_id, numericality: { other_than: 1, message: "を選択してください" }
   validates :training_event_id, numericality: { other_than: 1, message: "を選択してください" }

@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :set_record, only: [:edit, :show, :destroy]
+  before_action :set_record, only: [:edit, :show, :update, :destroy]
 
   def index
     @records = Record.order("created_at DESC")
@@ -24,6 +24,20 @@ class RecordsController < ApplicationController
 
  def show
  end 
+
+ def edit
+ end
+
+ def update
+  if @record.update(record_params)
+    redirect_to record_path
+  else
+    render :edit
+  end
+
+ end
+
+
 
 
   private
