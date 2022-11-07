@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_record, only: [:edit, :show, :update, :destroy]
+  before_action :contributor_confirmation, only: [:edit, :destroy]
 
   def index
     @records = Record.order("created_at DESC")
@@ -34,10 +35,15 @@ class RecordsController < ApplicationController
   else
     render :edit
   end
-
  end
 
-
+def destroy
+  if @record.destroy
+    redirect_to root_path
+  else
+    redirect_to root_path
+  end
+end
 
 
   private
@@ -48,6 +54,10 @@ class RecordsController < ApplicationController
 
   def set_record
     @record = Record.find(params[:id])
+  end
+
+  def contributor_confirmation
+    redirect_to root_path unless current_user == @record.user
   end
 
 end
