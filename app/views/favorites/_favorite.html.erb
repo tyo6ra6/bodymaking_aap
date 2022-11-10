@@ -1,0 +1,11 @@
+              <% if record.favorited_by?(current_user) %>
+                <%= link_to  record_favorites_path(record), method: :delete do %>
+                <i class="fa-solid fa-thumbs-up fa-beat"></i>
+                <%= record.favorites.count %>
+              <% end %>
+              <% else %>
+                <%= link_to record_favorites_path(record), method: :post do %>
+                 <i class="fa-solid fa-thumbs-up fa-beat"></i>
+                <%= record.favorites.count %>
+               <% end %>
+            <% end %>

@@ -3,6 +3,9 @@ class Record < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :favorites, dependent: :destroy
+  def favorited_by?(user_id)
+    favorites.where(user_id: user.id).exists?
+end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :training_site
@@ -10,9 +13,7 @@ class Record < ApplicationRecord
   belongs_to :times
   belongs_to :set_count
 
-  def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
-  end 
+ 
   
   validates :days, presence: true
   validates :weight, presence: true

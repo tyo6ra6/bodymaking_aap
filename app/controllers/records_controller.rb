@@ -4,10 +4,9 @@ class RecordsController < ApplicationController
   before_action :contributor_confirmation, only: [:edit, :destroy]
 
   def index
-    @records = Record.order("created_at DESC")
-    @records = Record.all
     @record = Record.find_by(params[:id])
-    
+    @records = Record.all
+    @records = Record.order("created_at DESC")
 
   end
 
