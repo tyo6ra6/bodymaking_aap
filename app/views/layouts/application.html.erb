@@ -25,18 +25,30 @@
 
           <ul class="list-unstyled">
            <% if user_signed_in? %>
-            <li><button type="button" class="btn btn-outline-primary">welcome !  <%= link_to current_user.nickname, root_path %> </button></li>
-            <li><button type="button" class="btn btn-outline-primary"><%= link_to 'logout', destroy_user_session_path, method: :get %></button></li>
+              <%= link_to( user_path) do %>
+               <li><button type="button" class="btn btn-outline-primary">welcome ! <%=current_user.nickname%></button></li>
+              <% end %>
+              
+              <%= link_to( destroy_user_session_path, method: :get ) do %>
+               <li><button type="button" class="btn btn-outline-primary"><%='logout'%></button></li>
+             <% end %>
 
           <% else %>
             <li><button type="button" class="btn btn-outline-primary fa-beat-fade"><%= link_to 'login', new_user_session_path%></button></li> 
             <li><button type="button" class="btn btn-outline-primary fa-beat-fade "><%= link_to 'sign up',new_user_registration_path %></button></li>
           <% end %>
          </ul>
+           <% if flash[:notice] %>
+              <div class="alert alert-primary" role="alert"><strong><%= notice %></strong></div>
+            <% end %>
+            <% if flash[:alert] %>
+              <div class="alert alert-danger" role="alert"><strong><%= alert %></strong></div>
+            <% end %>
         </div>
       </div>
     </div>
   </div>
+  
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
       <a href="/" class="navbar-brand d-flex align-items-center">
@@ -49,6 +61,7 @@
       </button>
     </div>
   </div>
+  
 </header>
     <%= yield %>
  <footer class="text-muted py-5">

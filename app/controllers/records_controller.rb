@@ -30,6 +30,9 @@ class RecordsController < ApplicationController
  end 
 
  def edit
+  if @record.user != current_user
+    redirect_to record_path, alert: '不正なアクセスです。'
+  end
  end
 
  def update
