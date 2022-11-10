@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
 
+  resource :user, except: [:new, :create, :destroy]
+
     
    
 

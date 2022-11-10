@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <h2>編集</h2>
+      <%=form_with model: @user, local: true do |f|%>
+
+        <div class="form-group">
+          <label>ユーザー名</label>
+          <%= f.text_field :nickname, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label>メールアドレス</label>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+          <div class="form-group">
+           <%= f.label :sex_id, "性別" %><br />
+          <%= f.collection_select :sex_id, Sex.all, :id, :name, {}, class: "form-control" %>
+        </div>
+
+         <div class="form-group">
+           <%= f.label :generation_id, "年齢" %><br />
+         <%= f.collection_select :generation_id, Generation.all, :id, :name, {}, class: "form-control" %>
+        </div>
+
+         <div class="form-group">
+           <%= f.label :height, "身長" %><br />
+          <%= f.text_field :height,  autofocus: true, autocomplete: "height", class: "form-control" %>
+         </div>
+
+       <div class="form-group">
+         <%= f.label :body_weight, "体重" %><br />
+         <%= f.text_field :body_weight, id:"user_body_weight", autofocus: true, autocomplete: "body_weight", class: "form-control" %>
+       </div>
+        <div>
+          <%= f.submit class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
