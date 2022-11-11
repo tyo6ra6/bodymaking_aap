@@ -22,10 +22,22 @@
         <p class="lead text-muted">さあ、本日もトレーニング内容を記録しましょう</p>
         
     <%# トレーニング記録 %>
+     <% if user_signed_in? %>
         <%= link_to( new_record_path) do %>
           <span class="btn btn-primary my-2 fa-bounce">本日のトレーニングを追加</span>
         <% end %>
-        
+      <% else %>
+        <p>
+        <%= link_to( new_user_session_path) do %>
+          <button type="button" class="btn btn-outline-primary btn-lg fa-beat-fade">login</button>
+           <% end %>
+        <%= link_to( new_user_registration_path) do %>
+          <button type="button" class="btn btn-outline-primary btn-lg fa-beat-fade ">sign up</button>
+        <% end %>
+        </p>
+      <% end %>
+
+
       </div>
     </div>
   </section>

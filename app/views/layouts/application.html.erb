@@ -24,7 +24,7 @@
           <h4 class="text-white"><i class="fa-solid fa-circle-user"></i>Who you are?</h4>
 
           <ul class="list-unstyled">
-           <% if user_signed_in? %>
+        <% if user_signed_in? %>
               <%= link_to( user_path) do %>
                <li><button type="button" class="btn btn-outline-primary">welcome ! <%=current_user.nickname%></button></li>
               <% end %>
@@ -33,10 +33,14 @@
                <li><button type="button" class="btn btn-outline-primary"><%='logout'%></button></li>
              <% end %>
 
-          <% else %>
-            <li><button type="button" class="btn btn-outline-primary fa-beat-fade"><%= link_to 'login', new_user_session_path%></button></li> 
-            <li><button type="button" class="btn btn-outline-primary fa-beat-fade "><%= link_to 'sign up',new_user_registration_path %></button></li>
+        <% else %>
+           <%= link_to( new_user_session_path) do %>
+            <li><button type="button" class="btn btn-outline-primary fa-beat-fade">login</button></li> 
           <% end %>
+           <%= link_to( new_user_registration_path) do %>
+            <li><button type="button" class="btn btn-outline-primary fa-beat-fade ">sign up</button></li>
+         <% end %>
+       <% end %>
          </ul>
            <% if flash[:notice] %>
               <div class="alert alert-primary" role="alert"><strong><%= notice %></strong></div>
