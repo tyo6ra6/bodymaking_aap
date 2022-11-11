@@ -32,7 +32,7 @@
           <button type="button" class="btn btn-outline-primary btn-lg fa-beat-fade">login</button>
            <% end %>
         <%= link_to( new_user_registration_path) do %>
-          <button type="button" class="btn btn-outline-primary btn-lg fa-beat-fade ">sign up</button>
+          <button type="button" class="btn btn-outline-success btn-lg fa-beat-fade ">sign up</button>
         <% end %>
         </p>
       <% end %>
@@ -75,14 +75,16 @@
       <p>メモ: <%= record.thoughts %></p>
     </div>
   </div></p>
+          <% if user_signed_in? %>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-outline-success"> <%= link_to 'view more', record_path(record.id), method: :get %></button>
-             
                 </div>
-                
+          <% end %>
+                <div id="favorites_buttons_<%= record.id %>">
                   <%# ここをいいねできるようにしたい %>
-                  <%= render "favorites/favorite", record: record %>
+                  <%= render partial: "favorites/favorite", record: @record %>
+                </div>
                   <%# ここをいいねできるようにしたい %>
               </div>
             </div>

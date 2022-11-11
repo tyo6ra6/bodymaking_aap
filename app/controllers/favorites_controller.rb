@@ -1,17 +1,18 @@
 class FavoritesController < ApplicationController
  
+  before_action :record_params
   def create
-    record = Record.find(params[:record_id])
-    favorite = current_user.favorites.new(record_id: record.id)
-    favorite.save
-    redirect_to records_path
+    Favorite.create(user_id: current_user.id, record_id: params[:id])
   end
-
+  
   def destroy
-    record = Record.find(params[:record_id])
-    favorite = current_user.favorites.find_by(record_id: record.id)
-    favorite.destroy
-    redirect_to records_path
+    Favorite.find_by(user_id: current_user.id, record_id: params[:id]).destroy
+  end
+  
+  private
+  
+  def record_params
+    @record = Record.find(params[:id])
   end
 end 
 

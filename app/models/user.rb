@@ -7,7 +7,9 @@ class User < ApplicationRecord
          has_many :records
          has_many :favorites, dependent: :destroy
 
-
+         def liked_by?(record_id)
+          favorites.where(record_id: record_id).exists?
+        end
        
       
 
