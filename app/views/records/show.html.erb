@@ -35,17 +35,7 @@
                        <p>感想・メモ: <%= @record.thoughts %></p>
                     </div>
                   </p>   
-              <% if @record.favorited_by?(current_user) %>
-                <%= link_to  record_favorites_path(@record), method: :delete do %>
-                <i class="fa-solid fa-thumbs-up fa-beat"></i>
-                <%= @record.favorites.count %>
-              <% end %>
-              <% else %>
-                <%= link_to record_favorites_path(@record), method: :post do %>
-             <i class="fa-solid fa-thumbs-up fa-beat"></i>
-                <%= @record.favorites.count %>
-               <% end %>
-              <% end %>
+             
                 <% if @record.user == current_user %>
                    <p>
                     <%= link_to( edit_record_path) do %>
