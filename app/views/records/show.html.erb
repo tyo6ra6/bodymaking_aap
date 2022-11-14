@@ -35,7 +35,21 @@
                        <p>感想・メモ: <%= @record.thoughts %></p>
                     </div>
                   </p>   
-             
+              <% if current_user.liked_by?(@record.id) %>
+            <td>
+                <%= link_to  destroy_favorite_path(@record), method: :DELETE, remote: true do %> 
+                  <i class="fa-solid fa-thumbs-up fa-beat"></i>
+                <%= @record.favorites.count %>
+              <% end %>
+            </td>
+            <% else %>
+            <td>
+               <%= link_to create_favorite_path(@record), method: :POST, remote: true do %> 
+                 <i class="fa-solid fa-thumbs-up fa-beat"></i>
+                <%= @record.favorites.count %>
+               <% end %>
+            </td>
+            <% end %>
                 <% if @record.user == current_user %>
                    <p>
                     <%= link_to( edit_record_path) do %>
