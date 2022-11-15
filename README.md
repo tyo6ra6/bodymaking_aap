@@ -36,7 +36,7 @@ https://bodymaking-aap.onrender.com
 
 # 他者の記録のいいね機能
 
-・良いと思った他者の記録にはいいねを押すことができる
+・良いと思った他者の記録にはいいねを押すことができる ←今後非同期機能を実装予定
 
 
 # アプリケーションを作成した背景
@@ -45,13 +45,23 @@ https://bodymaking-aap.onrender.com
 
 # 洗い出した要件
 
-※要件定義所書いてません
+https://docs.google.com/spreadsheets/d/1ptgGhGeVH4uhAPQkWBeH7MnsDb_ebfG4wJDm05PmbUM/edit#gid=1785908763
 
 
 # 実装した機能についての画像やGIFおよびその説明
 
+・トップページ(一覧ページ)の格納式のヘッダーまたはメイン画面からユーザー新規登録を行う  
+https://gyazo.com/b359141971a13e805f3da6029aaf7bf1  
+・新規登録完了後、「本日のトレーニングを記録」から記録画面に遷移し記録する
+https://gyazo.com/34342ce5b2b1bf1e9f714b3919b227d1  
+・記録後、自分が投稿した内容を確認「veiw more]から詳細ページに遷移し、編集/削除することができる   
+https://gyazo.com/fae3eca1f0274d169c1fb896d06afa90  
+.格納式のヘッダーにログインしているユーザー名が表示されているが、クリックするとユーザー詳細画面に推移し編集することができる  
+https://gyazo.com/31bc5d7239a97abca3eed7da5721362c  
+・良いと思った他者の記録にはいいねを押すことができる      ←今後非同期機能を実装予定
+https://gyazo.com/4ef152ae5f61f6ab0733c1911153f0d3  
 
-※何を添付すればよろしでしょうか？
+
 
 # 実装予定の機能
 
@@ -83,13 +93,7 @@ https://bodymaking-aap.onrender.com
 ・テキストエディタ  
 ・タスク管理
 
-# ローカルでの動作方法      ※ここは良くわかりません
 
-・以下のコマンドを順に実行。  
-%git clone https://github.com/tyo6ra6/bodymaking_aap.git  
-・cd bodymaking_aap.git    
-・bundele install
-・yarn install
 
 
 
