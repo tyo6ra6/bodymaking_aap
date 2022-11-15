@@ -61,13 +61,13 @@ https://bodymaking-aap.onrender.com
 
 # データベース設計  
 
-※er図の添付方法がわかりません
+![test](https://user-images.githubusercontent.com/113968546/201836462-1a5624d2-3c3e-4b27-a01b-62e7cb832de1.png)
+
 
 
 # 画面遷移図
 
-※画面遷移ずの添付方法がわかりません
-
+![test](https://user-images.githubusercontent.com/113968546/201836652-5111249c-c05f-4c22-8b4c-e74a98230632.svg)
 
 
 
