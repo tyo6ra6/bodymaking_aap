@@ -1,51 +1,118 @@
-# DB 設計
+# アプリケーション名
 
-## users table
+BODYMAKE
 
-| Column             | Type                | Options                   |
-|--------------------|---------------------|---------------------------|
-| nickname           | string              | null: false               |
-| email              | string              | null: false, unique: true |
-| encrypted_password | string              | null: false               |
-| sex_id             | integer             | null: false               |
-| generation_id      | integer             | null: false               |
-| height             | integer             | null: false               |
-| body_weight        | integer             | null: false               |
-
-　
-### Association
-
-* has_many :records
-* has_many :comments
-
-## records table
-
-| Column            | Type       | Options                        |
-|------------------ |------------|--------------------------------|
-| day              | date       | null: false                    |
-| training_site_id  | integer    | null: false                    |
-| training_event_id | integer    | null: false                    |
-| weight            | integer    | null: false                    |
-| times_id          | integer    | null: false                    |
-| thoughts          | text       |                                |
-
-### Association
-
-- belongs_to :user
+# アプリケーションの概要
 
 
-## comments table
 
-| Column      | Type       | Options                        |
-|-------------|------------|--------------------------------|
-| user        | references | null: false, foreign_key: true |
-| record      | references | null: false, foreign_key: true |
-| text        | text       | null: false                    |
+・日々のトレーニング内容を記録し仲間とシェアすることができる.
 
-### Association
 
-- belongs_to :user
-- belongs_to :record
+# URL
+
+https://bodymaking-aap.onrender.com
+
+# テスト用アカウント
+
+・BASIC認証パスワード：admin  
+・BASIC認証ID：2222  
+・メールアドレス：hoge@body.com  
+・パスワード：bodymake123
+
+# 利用方法
+
+# トレーニング内容の記録 
+
+・トップページ(一覧ページ)の格納式のヘッダーまたはメイン画面からユーザー新規登録を行う  
+・本日のトレーニングを記録ボタンから、記録の内容(日付・部位・種目・重量/消費カロリー・回数/有酸素時間・セット数・感想/備考欄・画像)を選択・入力し記録する。  
+・自分が投稿した内容は編集・削除することができる
+
+
+# ユーザー情報の確認・編集
+
+・格納式のヘッダーにログインしているユーザー名が表示されているが、そこをクリックするとユーザー詳細画面に推移しする。  
+・ユーザー詳細画面からユーザー情報を編集することができる
+
+# 他者の記録のいいね機能
+
+・良いと思った他者の記録にはいいねを押すことができる
+
+
+# アプリケーションを作成した背景
+
+・学生時代の友人に課題をヒアリングし、「筋トレやダイエットを継続できない」という課題を抱えていることが判明した。課題を分析した結果、「目標を共有する仲間や発信する場がない」ということが真因であると仮説を立てた。同様の問題を抱えている方も多いと推測し、真因を解決するために、日々のトレーニング内容を共有し筋トレやダイエットを継続して続けられる、モチベーションを保つことができるアプリケーションを開発することにした。
+
+# 洗い出した要件
+
+※要件定義所書いてません
+
+
+# 実装した機能についての画像やGIFおよびその説明
+
+
+※何を添付すればよろしでしょうか？
+
+# 実装予定の機能
+
+コメント機能を実装中。  
+今後はいいね機能の非同期化やフォロー機能・連続ログイン記録などを実装予定
+
+
+# データベース設計  
+
+※er図の添付方法がわかりません
+
+
+# 画面遷移図
+
+※画面遷移ずの添付方法がわかりません
+
+
+
+
+
+
+
+# 開発環境
+
+・フロントエンド  
+・バックエンド  
+・インフラ  
+・テスト  
+・テキストエディタ  
+・タスク管理
+
+# ローカルでの動作方法      ※ここは良くわかりません
+
+・以下のコマンドを順に実行。  
+%git clone https://github.com/tyo6ra6/bodymaking_aap.git  
+・cd bodymaking_aap.git    
+・bundele install
+・yarn install
+
+
+
+
+# 工夫したポイント
+・デザインを見やすくシンプルにした。  
+・シンプルながらもトレーニングの記録を管理することができ、共有することもできる。  
+・ログインの有無で表示される内容を変え、プライバシー面も配慮した。  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
