@@ -81,9 +81,9 @@
                   <button type="button" class="btn btn-outline-success"> <%= link_to 'view more', record_path(record.id), method: :get %></button>
                 </div>
           <% end %>
-                <div id="favorites_buttons_<%= record.id %>">
+                <div id="favorites_buttons_<%= @record.id %>">
                   <%# ここをいいねできるようにしたい %>
-                  <%= render partial: "favorites/favorite", record: @record %>
+                  <%= render partial: "favorites/favorite", record: record %>
                 </div>
                   <%# ここをいいねできるようにしたい %>
               </div>
