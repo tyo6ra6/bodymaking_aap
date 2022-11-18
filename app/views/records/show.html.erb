@@ -35,21 +35,21 @@
                        <p>感想・メモ: <%= @record.thoughts %></p>
                     </div>
                   </p>   
-              <% if current_user.liked_by?(@record.id) %>
+          <% if current_user.liked_by?(@record.id) %>
             <td>
                 <%= link_to  destroy_favorite_path(@record), method: :DELETE, remote: true do %> 
                   <i class="fa-solid fa-thumbs-up fa-beat"></i>
                 <%= @record.favorites.count %>
               <% end %>
             </td>
-            <% else %>
+          <% else %>
             <td>
                <%= link_to create_favorite_path(@record), method: :POST, remote: true do %> 
                  <i class="fa-solid fa-thumbs-up fa-beat"></i>
                 <%= @record.favorites.count %>
                <% end %>
             </td>
-            <% end %>
+          <% end %>
                 <% if @record.user == current_user %>
                    <p>
                     <%= link_to( edit_record_path) do %>
@@ -61,9 +61,43 @@
                     <% end %>
                     </p>
                 <% end %>
-                </div>                  
+                         
+
+          
+          </div>                  
         </div>
       </div>
+            <div class="container">
+             <div class="row row-cols- row-cols-sm-2 g-2 justify-content-center ">
+              <div class="col">
+               <div class="card shadow-sm">
+                <div class="card-body">
+                  <% if user_signed_in? %>
+                    <%= form_with(model: [@record, @comment], local: true) do |form| %>
+                        <div class="form-group">
+                          <%= form.text_area :text, placeholder: "コメントする", rows: "2" ,class: "form-control"%>
+                        </div>
+                         <div class="d-grid gap-2 col-6 mx-auto">
+                          <%= form.submit "SEND", class: "btn btn-outline-secondary" %>
+                        </div>
+                    <% end %>
+                  <% else %>
+                    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+                  <% end %>
+                  <div class="comments">
+                    <h4>＜コメント一覧＞</h4>
+                    <% @comments.each do |comment| %>
+                      <p>
+                        <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                        <%= comment.text %>
+                      </p>
+                    <% end %>
+                 </div>
+                </div>
+               </div>
+              </div>
+             </div>
+            </div>
     </div>
    </div>
                  
