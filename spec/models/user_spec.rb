@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
       it 'emailに@を含まないと登録できない' do
         @user.email = 'testmail'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Email is invalid')     
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'passwordが5文字以下では登録できない' do
         @user.password = '00000'
@@ -52,13 +52,13 @@ RSpec.describe User, type: :model do
       it 'sex_idが空だと保存できない  ' do
         @user.sex_id = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Sex is not a number")
-      end    
+        expect(@user.errors.full_messages).to include('Sex is not a number')
+      end
       it 'generation_idが空だと保存できない' do
         @user.generation_id = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Generation is not a number")
-      end    
+        expect(@user.errors.full_messages).to include('Generation is not a number')
+      end
       it 'heightが空では登録できない' do
         @user.height = ''
         @user.valid?

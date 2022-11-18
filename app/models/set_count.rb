@@ -10,9 +10,9 @@ class SetCount < ActiveHash::Base
     { id: 8, name: '7セット' },
     { id: 9, name: '8セット' },
     { id: 10, name: '9セット' },
-    { id: 11, name: '10回セット'},
+    { id: 11, name: '10回セット' },
     { id: 12, name: 'それ以上' }
-    
+
   ]
 
   include ActiveHash::Associations
