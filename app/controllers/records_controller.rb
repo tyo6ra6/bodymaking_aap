@@ -6,19 +6,16 @@ class RecordsController < ApplicationController
   def index
     @record = Record.find_by(params[:id])
     @records = Record.all
-    @records = Record.order("created_at DESC")
-
+    @records = Record.order('created_at DESC')
   end
-
 
   def new
     @record = Record.new
   end
 
   def create
-   
     @record = Record.new(record_params)
-  
+
     if @record.save
       redirect_to root_path
     else
@@ -26,36 +23,36 @@ class RecordsController < ApplicationController
     end
   end
 
- def show
- end 
+  def show
+  end
 
- def edit
-  if @record.user != current_user
+  def edit
+    return unless @record.user != current_user
+
     redirect_to record_path, alert: '不正なアクセスです。'
   end
- end
 
- def update
-  if @record.update(record_params)
-    redirect_to record_path
-  else
-    render :edit
+  def update
+    if @record.update(record_params)
+      redirect_to record_path
+    else
+      render :edit
+    end
   end
- end
 
-def destroy
-  if @record.destroy
-    redirect_to root_path
-  else
-    redirect_to root_path
+  def destroy
+    if @record.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
-end
-
 
   private
 
   def record_params
-    params.require(:record).permit(:days, :training_site_id, :training_event_id, :times_id, :set_count_id, :weight, :thoughts, :image).merge(user_id: current_user.id)
+    params.require(:record).permit(:days, :training_site_id, :training_event_id, :times_id, :set_count_id, :weight, :thoughts,
+                                   :image).merge(user_id: current_user.id)
   end
 
   def set_record
@@ -65,5 +62,4 @@ end
   def contributor_confirmation
     redirect_to root_path unless current_user == @record.user
   end
-
 end
