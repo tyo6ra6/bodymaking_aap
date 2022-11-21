@@ -38,6 +38,9 @@ https://bodymaking-aap.onrender.com
 
 ・良いと思った他者の記録にはいいねを押すことができる ←今後非同期機能を実装予定
 
+# 投稿へのコメント機能  
+・詳細ページから投稿にコメントをすることができる
+
 
 # アプリケーションを作成した背景
 
@@ -54,25 +57,25 @@ https://docs.google.com/spreadsheets/d/1ptgGhGeVH4uhAPQkWBeH7MnsDb_ebfG4wJDm05Pm
 https://gyazo.com/b359141971a13e805f3da6029aaf7bf1  
 ・新規登録完了後、「本日のトレーニングを記録」から記録画面に遷移し記録する
 https://gyazo.com/34342ce5b2b1bf1e9f714b3919b227d1  
-・記録後、自分が投稿した内容を確認「veiw more]から詳細ページに遷移し、編集/削除することができる   
+・記録後、自分が投稿した内容を確認「view more]から詳細ページに遷移し、編集/削除することができる   
 https://gyazo.com/fae3eca1f0274d169c1fb896d06afa90  
 .格納式のヘッダーにログインしているユーザー名が表示されているが、クリックするとユーザー詳細画面に推移し編集することができる  
 https://gyazo.com/31bc5d7239a97abca3eed7da5721362c  
+.投稿にコメントすることができる  
+https://gyazo.com/99bd5d30f17bb2db5fd7375f3d68d0d3  
 ・良いと思った他者の記録にはいいねを押すことができる      ←今後非同期機能を実装予定
 https://gyazo.com/4ef152ae5f61f6ab0733c1911153f0d3  
 
 
 
 # 実装予定の機能
-
-コメント機能を実装中。  
+  
 今後はいいね機能の非同期化やフォロー機能・連続ログイン記録などを実装予定
 
 
 # データベース設計  
 
-![test](https://user-images.githubusercontent.com/113968546/201836462-1a5624d2-3c3e-4b27-a01b-62e7cb832de1.png)
-
+![test](https://user-images.githubusercontent.com/113968546/202980681-a6f2af48-a0aa-4224-b2bb-64282862042b.svg)
 
 
 # 画面遷移図
