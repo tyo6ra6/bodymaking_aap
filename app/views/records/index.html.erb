@@ -78,7 +78,9 @@
           <% if user_signed_in? %>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-outline-success"> <%= link_to 'view more', record_path(record.id), method: :get %></button>
+                 <%= link_to( record_path(record.id), method: :get ) do %>
+                  <button type="button" class="btn btn-outline-primary"> <%='view more' %></button>
+                 <% end %>
                 </div>
           <% end %>
                 <div id="favorites_buttons_<%= @record.id %>">
